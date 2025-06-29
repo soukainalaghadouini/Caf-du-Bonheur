@@ -57,14 +57,6 @@
 <h3>Galerie de Photos :</h3>
 <img src="vn.jpg" alt="Capture d'écran de la galerie du Café du Bonheur" />
 
-<h3>Design Responsive (vue mobile) :</h3>
-<img src="LIEN_IMAGE_MOBILE_ICI" alt="Capture d'écran du site du Café du Bonheur sur mobile" />
-
-<p>
-    <a href="LIEN_VIDEO_DEMO_ICI" target="_blank">Lien vers la vidéo de démonstration</a>
-</p>
-
-<hr>
 <p style="text-align:center;">
     <strong>Développé par :</strong> PixelPioneers<br/>
     <strong>Encadré par :</strong> Prof Abdelmoula Abouhilal<br/>
