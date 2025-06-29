@@ -37,58 +37,6 @@
 </ul>
 <p>Assurez-vous d'avoir un environnement compatible pour garantir une expérience fluide.</p>
 
-<h2>📋 Répartition des responsabilités de l'équipe</h2>
-<p>Ce projet a été développé en équipe, avec une répartition claire des rôles et des fichiers :</p>
-
-<table>
-    <thead>
-        <tr>
-            <th>👤 Membre</th>
-            <th>🎯 Rôle principal</th>
-            <th>📄 Fichier(s) concerné(s)</th>
-            <th>📝 Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>Houda Ghazoui</strong></td>
-            <td>Structure HTML de la page</td>
-            <td><code>index.html</code></td>
-            <td>Construction des sections principales, du formulaire et intégration des liens CSS/JS.</td>
-        </tr>
-        <tr>
-            <td><strong>Khaoula Ibn Ittou</strong></td>
-            <td>Design et styles de l’interface</td>
-            <td><code>style.css</code></td>
-            <td>Application du design responsive, des couleurs, de la disposition et des effets visuels.</td>
-        </tr>
-        <tr>
-            <td><strong>Hafsa Hiyab</strong></td>
-            <td>Logique d'interaction de base</td>
-            <td><code>script.js</code></td>
-            <td>Mise en place de la navigation mobile, des animations légères, ou autres interactions front-end.</td>
-        </tr>
-        <tr>
-            <td><strong>Soukaina Laghadouini</strong></td>
-            <td>Gestion et intégration des assets</td>
-            <td><code>images/</code>, <code>fonts/</code></td>
-            <td>Organisation et optimisation des ressources visuelles (images, polices) du projet.</td>
-        </tr>
-        <tr>
-            <td><strong>Khadija Guahmane</strong></td>
-            <td>Optimisation de l'expérience utilisateur (UX)</td>
-            <td><code>style.css</code>, <code>index.html</code></td>
-            <td>Assurer la fluidité de l'interface et l'accessibilité du contenu.</td>
-        </tr>
-        <tr>
-            <td><strong>Maryem Mars</strong></td>
-            <td>Fonctions utilitaires et support technique</td>
-            <td><code>utils.js</code> (si utilisé)</td>
-            <td>Développement de petites fonctions d'aide ou résolution de problèmes généraux du projet.</td>
-        </tr>
-    </tbody>
-</table>
-
 <h2>Fonctions utilitaires partagées</h2>
 <p>Ce module regroupe les fonctions essentielles qui assurent la qualité et la fluidité de l'expérience utilisateur, même pour un site principalement statique. Parmi ces fonctions, on retrouve :</p>
 <ul>
