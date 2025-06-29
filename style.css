@@ -1,0 +1,522 @@
+/* Réinitialisation de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Utilisez votre police choisie */
+    line-height: 1.6;
+    color: #333; /* Couleur de texte par défaut du corps */
+    background-color: #f8f8f8;
+    direction: ltr; /* Direction du texte de gauche à droite */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Ce padding restera tel quel et affectera le menu et le contenu */
+}
+
+/* En-tête (Header) */
+header {
+    background: transparent; /* Conserver transparent pour le recouvrement de l'image de fond */
+    color: #fff; /* Texte blanc pour la navigation sur fond transparent */
+    padding: 20px 0; /* Ce padding restera tel quel, il affectera le menu mais pas le logo */
+    position: absolute; /* Position absolue pour flotter au-dessus de la section héro */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Assure que l'en-tête est au-dessus */
+    border-bottom: none; /* Pas de bordure pour l'en-tête transparent */
+    box-shadow: none; /* Pas d'ombre pour l'en-tête transparent */
+}
+
+header .container {
+    display: flex;
+    /* justify-content: space-between; a été supprimé car le logo est maintenant positionné de manière absolue */
+    align-items: center;
+    /* Définir une hauteur pour le conteneur de l'en-tête afin qu'il ne s'effondre pas lorsque le logo en sort */
+    height: 70px; /* Devrait être la même hauteur que le logo */
+}
+
+/* Modifications ici uniquement sur .logo pour le coller au cadre */
+.logo {
+    position: absolute; /* <--- Positionne le logo de manière absolue par rapport à l'en-tête (et donc à la page) */
+    top: 0;            /* <--- Colle en haut complètement */
+    left: 0;           /* <--- Colle à gauche complètement */
+    z-index: 1001;     /* <--- S'assure qu'il apparaît au-dessus de l'en-tête si des éléments se chevauchent */
+}
+
+.logo img {
+    height: 70px;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5)); /* Ombre pour faire ressortir le logo sur l'image */
+}
+
+nav {
+    margin-left: auto; /* <--- Cela poussera le menu à l'extrême droite à l'intérieur du conteneur flex */
+    /* Étant donné que le logo est maintenant positionné de manière absolue, le menu est le seul élément restant dans le flux flexbox */
+    /* Et margin-left: auto lui fera prendre tout l'espace disponible à sa gauche, le poussant vers la droite */
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* Affiche les éléments de navigation horizontalement */
+}
+
+nav ul li {
+    display: inline-block;
+    margin-left: 30px; /* Espace entre les éléments de navigation */
+}
+
+nav ul li a {
+    color: #fff; /* Texte blanc pour la lisibilité sur l'image de fond */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    font-size: 1.1em; /* Taille de police légèrement plus grande */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Ombre de texte pour la clarté */
+}
+
+nav ul li a:hover {
+    color: #A0522D; /* Couleur d'accentuation au survol (marron café de votre code) */
+}
+
+/* Boutons Généraux */
+.btn {
+    display: inline-block;
+    background: #A0522D; /* Couleur café ou marron de votre code */
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background: #8B4513; /* Couleur plus foncée au survol de votre code */
+}
+
+/* Section Héro (Hero Section) */
+.hero-section {
+    background: url('hero-bg (3).jpg') no-repeat center center/cover; /* Image de fond du café */
+    color: #fff;
+    text-align: center;
+    padding: 200px 0 150px 0; /* Padding supérieur ajusté pour tenir compte de l'en-tête transparent */
+    position: relative;
+    z-index: 1; /* Assure que le contenu apparaît au-dessus de l'image */
+}
+
+.hero-section::before { /* Incrustation sombre pour la clarté du texte */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Couche noire transparente légèrement plus claire */
+    z-index: -1;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif; /* Une police plus élégante pour les titres */
+    font-size: 3.8em; /* Titre légèrement plus grand */
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.8); /* Ombre de texte plus proéminente */
+}
+
+.hero-content p {
+    font-size: 1.3em; /* Paragraphe légèrement plus grand */
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+/* Sections Générales */
+section {
+    padding: 80px 0; /* Padding cohérent pour les sections */
+    text-align: center;
+}
+
+section h2 {
+    font-family: 'Playfair Display', serif; /* Police élégante pour les titres */
+    font-size: 2.8em; /* Titre légèrement plus grand */
+    margin-bottom: 20px;
+    color: #A0522D; /* Couleur d'accentuation de votre code */
+    position: relative;
+}
+
+.section-description {
+    font-size: 1.1em;
+    color: #666; /* Texte gris de votre code */
+    max-width: 800px;
+    margin: 0 auto 50px;
+    line-height: 1.7;
+}
+
+section h2::after { /* Ligne décorative sous le titre */
+    content: '';
+    display: block;
+    width: 100px; /* Ligne légèrement plus longue */
+    height: 4px; /* Ligne plus épaisse */
+    background: #A0522D; /* Couleur d'accentuation de votre code */
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* Section "Happiness Cups" */
+.happiness-cups-section {
+    background-color: #FFF0F5; /* Couleur rose poudré clair comme utilisé précédemment */
+}
+
+.cups-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    text-align: left;
+}
+
+.cup-item {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.cup-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.cup-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #A0522D; /* Couleur d'accentuation pour la bordure de l'image */
+}
+
+.cup-item h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #333; /* Texte foncé de votre code */
+    font-family: 'Playfair Display', serif;
+}
+
+.cup-item h4 {
+    font-size: 1.1em;
+    color: #A0522D; /* Couleur d'accentuation pour h4 */
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+.cup-item p {
+    font-size: 1em;
+    color: #555; /* Texte gris moyen de votre code */
+    line-height: 1.7;
+}
+
+/* Section Menu */
+.menu-categories {
+    margin-bottom: 30px;
+}
+
+.menu-category-btn {
+    background: #eee;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 20px; /* Boutons arrondis */
+    font-size: 1em;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.menu-category-btn.active,
+.menu-category-btn:hover {
+    background: #A0522D; /* Couleur d'accentuation de votre code */
+    color: #fff;
+}
+
+.menu-items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+.menu-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.menu-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333; /* Texte foncé de votre code */
+}
+
+.menu-item p {
+    font-size: 0.95em;
+    color: #666; /* Texte gris de votre code */
+    margin-bottom: 15px;
+}
+
+.menu-item .price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #A0522D; /* Couleur d'accentuation de votre code */
+}
+
+/* Section Galerie */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* Section "À Propos" */
+.about-section {
+    background-color: #FDF5E6; /* Fond crème comme utilisé précédemment */
+}
+.about-section p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+.about-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.about-images img {
+    width: 100%;
+    max-width: 450px; /* Largeur maximale légèrement plus grande */
+    height: 300px; /* Hauteur fixe */
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Section Témoignages */
+.testimonials-section {
+    background-color: #FDF5E6; /* Fond crème */
+    padding: 80px 0;
+}
+.testimonial-item {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+.testimonial-item p {
+    font-size: 1.1em;
+    font-style: italic;
+    color: #555; /* Texte gris moyen de votre code */
+    margin-bottom: 15px;
+}
+.testimonial-item h4 {
+    font-size: 1em;
+    color: #A0522D; /* Couleur d'accentuation pour h4 */
+    font-weight: bold;
+}
+
+/* Section Localisation et Horaires */
+.location-hours-section .contact-info {
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+.location-hours-section .contact-info ul {
+    list-style: none;
+    margin-top: 15px;
+}
+.location-hours-section .contact-info li {
+    margin-bottom: 8px;
+}
+
+.map-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Section Contact */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button.btn {
+    align-self: flex-start;
+    width: auto;
+    padding: 12px 30px;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+.social-links img {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.social-links img:hover {
+    transform: translateY(-5px);
+}
+
+/* Pied de page (Footer) */
+footer {
+    background: #333;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* Design Réactif (Responsive Design) */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    /* En mode responsive, le logo et le menu changeront d'ordre, il faut donc remettre le logo à sa position normale */
+    .logo {
+        position: static; /* Remet le logo dans son flux normal */
+        margin-right: 0;
+        margin-bottom: 15px; /* Espace entre le logo et le menu en mode colonne */
+    }
+    /* Le nav revient également à son comportement normal en responsive */
+    nav {
+        margin-left: 0; /* Annule le margin-left: auto en mode responsive */
+    }
+    nav ul {
+        margin-top: 0;
+        flex-direction: column;
+        text-align: center;
+    }
+    nav ul li {
+        margin: 0 0 10px 0;
+    }
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+    .hero-content p {
+        font-size: 1.1em;
+    }
+    section h2 {
+        font-size: 2.2em;
+    }
+    .section-description {
+        font-size: 1em;
+    }
+    .cups-grid, .menu-items-grid, .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    .about-images img {
+        max-width: 100%;
+    }
+    .contact-form button.btn {
+        align-self: stretch;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        height: 50px;
+    }
+    nav ul li {
+        margin: 0 0 8px 0;
+    }
+    .btn {
+        padding: 10px 20px;
+    }
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+    .hero-content p {
+        font-size: 0.9em;
+    }
+    section h2 {
+        font-size: 1.8em;
+    }
+    .cup-item h3 {
+        font-size: 1.5em;
+    }
+    .cup-item h4 {
+        font-size: 1em;
+    }
+}
